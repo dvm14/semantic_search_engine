@@ -23,10 +23,10 @@ if __name__ == '__main__':
     embeddings = model.encode(texts)
 
     # Store embeddings in ChromaDB
-    """client = chromadb.Client(Settings(anonymized_telemetry=False))
-    collection = client.create_collection("my_movie_collection")
-    collection.add(documents=texts, embeddings=embeddings.tolist(), ids=[str(i) for i in range(len(texts))])
-    """
+    #client = chromadb.Client(Settings(anonymized_telemetry=False))
+    #collection = client.create_collection("my_movie_collection")
+    #collection.add(documents=texts, embeddings=embeddings.tolist(), ids=[str(i) for i in range(len(texts))])
+
     #save ChromaDB
     #client = chromadb.PersistentClient(path="./chromadb")
     #collection = client.get_or_create_collection("my_movie_collection")
@@ -55,17 +55,5 @@ if __name__ == '__main__':
         results = semantic_search(query)
         st.text_area("Top Matches", results, height=300)
 
-    """
-    # Simple Gradio interface
-    demo = gr.Interface(
-        fn=semantic_search,
-        inputs=gr.Textbox(label="Enter your search query"),
-        outputs=gr.Textbox(label="Top Matches"),
-        title="Semantic Search Engine",
-        description="Search over your custom dataset using semantic similarity."
-    )
-
-    demo.launch()
-    """
     print("done")
 
