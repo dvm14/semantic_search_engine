@@ -47,7 +47,7 @@ if __name__ == '__main__':
         return "\n\n".join([f"{title}: {doc}" for title, doc in zip(results['title'], results['documents'][0])])
 
     st.title("Semantic Search Engine")
-    st.write("Search over your custom dataset using semantic similarity.")
+    st.write("Search over a dataset of Top 1000 movies using semantic similarity.")
 
     query = st.text_input("Enter your search query")
 
