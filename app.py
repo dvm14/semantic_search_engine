@@ -3,7 +3,7 @@ import chromadb
 from chromadb.config import Settings
 import gradio as gr
 import pandas as pd
-
+import streamlit as st
 
 
 
@@ -46,6 +46,16 @@ if __name__ == '__main__':
         #print("Results", results)
         return "\n\n".join([f"{title}: {doc}" for title, doc in zip(results['title'], results['documents'][0])])
 
+    st.title("Semantic Search Engine")
+    st.write("Search over your custom dataset using semantic similarity.")
+
+    query = st.text_input("Enter your search query")
+
+    if query:
+        results = semantic_search(query)
+        st.text_area("Top Matches", results, height=300)
+
+    """
     # Simple Gradio interface
     demo = gr.Interface(
         fn=semantic_search,
@@ -56,6 +66,6 @@ if __name__ == '__main__':
     )
 
     demo.launch()
-    
+    """
     print("done")
 
